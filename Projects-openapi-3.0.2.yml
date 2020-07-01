@@ -1,0 +1,4302 @@
+#  ___ _            _ _    _ _    __
+# / __(_)_ __  _ __| (_)__(_) |_ /_/
+# \__ \ | '  \| '_ \ | / _| |  _/ -_)
+# |___/_|_|_|_| .__/_|_\__|_|\__\___|
+#             |_| Module: Projects 1
+components:
+  schemas:
+    Error404:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 404
+    PrjProject:
+      type: object
+      properties:
+        prjPrjName:
+          description: Name
+          type: string
+        prjPrjDescription:
+          description: Description
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    ArrayOfPrjItem:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjItem'
+    ArrayOfPrjProject:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjProject'
+    PrjVersion:
+      type: object
+      properties:
+        prjVrsVersion:
+          description: Version
+          type: string
+        prjVrsDueDate:
+          description: Due Date
+          type: string
+          example: yyyy-MM-dd
+        prjVrsPrjId:
+          description: Project
+          type: string
+        prjVrsPrjId__prjPrjName:
+          description: Project Name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    PrjItem:
+      type: object
+      properties:
+        prjItmProgress:
+          description: Progress
+          type: number
+        prjItmUsrId__usr_login:
+          description: Login
+          type: string
+        prjItmVrsId:
+          description: Version
+          type: string
+        prjItmNumber:
+          description: Reference
+          type: integer
+        prjItmVrsId__prjVrsDueDate:
+          description: Version Due Date
+          type: string
+          example: yyyy-MM-dd
+        prjItmTitle:
+          description: Title
+          type: string
+        prjItmPriority:
+          description: Priority
+          type: string
+          enum:
+          - LOW
+          - NORMAL
+          - HIGH
+          - URGENT
+        prjItmVrsId__prjVrsVersion:
+          description: Version
+          type: string
+        prjItmVrsId__prjVrsPrjId__prjPrjName:
+          description: Project
+          type: string
+        prjItmUsrId:
+          description: Assignee
+          type: string
+        prjItmVrsId__prjVrsPrjId:
+          description: Version Project
+          type: string
+        prjItmStatus:
+          description: Status
+          type: string
+          enum:
+          - DRAFT
+          - BACKLOG
+          - SPRINT
+          - DOING
+          - DONE
+          - CLOSED
+          - REJECTED
+        prjItmCreated:
+          description: Created
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        prjItmPrjId:
+          description: Project
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        prjItmDescription:
+          description: Description
+          type: string
+    PrjRole:
+      type: object
+      properties:
+        prjRolUsrId:
+          description: User
+          type: string
+        prjRolPrjId__prjPrjName:
+          description: Project Name
+          type: string
+        prjRolPrjId:
+          description: Project
+          type: string
+        prjRolType:
+          description: Type
+          type: string
+          enum:
+          - PRJ_MOA
+          - PRJ_MOE
+          - PRJ_READONLY
+        row_id:
+          description: Unique technical row ID
+          type: string
+        prjRolUsrId__usr_login:
+          description: Login
+          type: string
+    PublicationResult:
+      type: object
+      properties:
+        mime:
+          description: MIME type
+          type: string
+        content:
+          description: Content (plain text or base64 encoded)
+          type: string
+    PrjUser:
+      type: object
+      properties:
+        usr_timezone:
+          description: Time zone
+          type: string
+          enum:
+          - Etc/GMT+12
+          - Etc/GMT+11
+          - Pacific/Midway
+          - Pacific/Niue
+          - Pacific/Pago_Pago
+          - Pacific/Samoa
+          - US/Samoa
+          - America/Adak
+          - America/Atka
+          - Etc/GMT+10
+          - Pacific/Honolulu
+          - Pacific/Johnston
+          - Pacific/Rarotonga
+          - Pacific/Tahiti
+          - SystemV/HST10
+          - US/Aleutian
+          - US/Hawaii
+          - HST
+          - Pacific/Marquesas
+          - America/Anchorage
+          - America/Juneau
+          - America/Metlakatla
+          - America/Nome
+          - America/Sitka
+          - America/Yakutat
+          - Etc/GMT+9
+          - Pacific/Gambier
+          - SystemV/YST9
+          - SystemV/YST9YDT
+          - US/Alaska
+          - AST
+          - America/Ensenada
+          - America/Los_Angeles
+          - America/Santa_Isabel
+          - America/Tijuana
+          - America/Vancouver
+          - Canada/Pacific
+          - Etc/GMT+8
+          - Mexico/BajaNorte
+          - PST8PDT
+          - Pacific/Pitcairn
+          - SystemV/PST8
+          - SystemV/PST8PDT
+          - US/Pacific
+          - US/Pacific-New
+          - PST
+          - America/Boise
+          - America/Cambridge_Bay
+          - America/Chihuahua
+          - America/Creston
+          - America/Dawson
+          - America/Dawson_Creek
+          - America/Denver
+          - America/Edmonton
+          - America/Fort_Nelson
+          - America/Hermosillo
+          - America/Inuvik
+          - America/Mazatlan
+          - America/Ojinaga
+          - America/Phoenix
+          - America/Shiprock
+          - America/Whitehorse
+          - America/Yellowknife
+          - Canada/Mountain
+          - Canada/Yukon
+          - Etc/GMT+7
+          - MST7MDT
+          - Mexico/BajaSur
+          - Navajo
+          - SystemV/MST7
+          - SystemV/MST7MDT
+          - US/Arizona
+          - US/Mountain
+          - MST
+          - PNT
+          - America/Bahia_Banderas
+          - America/Belize
+          - America/Chicago
+          - America/Costa_Rica
+          - America/El_Salvador
+          - America/Guatemala
+          - America/Indiana/Knox
+          - America/Indiana/Tell_City
+          - America/Knox_IN
+          - America/Managua
+          - America/Matamoros
+          - America/Menominee
+          - America/Merida
+          - America/Mexico_City
+          - America/Monterrey
+          - America/North_Dakota/Beulah
+          - America/North_Dakota/Center
+          - America/North_Dakota/New_Salem
+          - America/Rainy_River
+          - America/Rankin_Inlet
+          - America/Regina
+          - America/Resolute
+          - America/Swift_Current
+          - America/Tegucigalpa
+          - America/Winnipeg
+          - CST6CDT
+          - Canada/Central
+          - Canada/Saskatchewan
+          - Chile/EasterIsland
+          - Etc/GMT+6
+          - Mexico/General
+          - Pacific/Easter
+          - Pacific/Galapagos
+          - SystemV/CST6
+          - SystemV/CST6CDT
+          - US/Central
+          - US/Indiana-Starke
+          - CST
+          - America/Atikokan
+          - America/Bogota
+          - America/Cancun
+          - America/Cayman
+          - America/Coral_Harbour
+          - America/Detroit
+          - America/Eirunepe
+          - America/Fort_Wayne
+          - America/Grand_Turk
+          - America/Guayaquil
+          - America/Havana
+          - America/Indiana/Indianapolis
+          - America/Indiana/Marengo
+          - America/Indiana/Petersburg
+          - America/Indiana/Vevay
+          - America/Indiana/Vincennes
+          - America/Indiana/Winamac
+          - America/Indianapolis
+          - America/Iqaluit
+          - America/Jamaica
+          - America/Kentucky/Louisville
+          - America/Kentucky/Monticello
+          - America/Lima
+          - America/Louisville
+          - America/Montreal
+          - America/Nassau
+          - America/New_York
+          - America/Nipigon
+          - America/Panama
+          - America/Pangnirtung
+          - America/Port-au-Prince
+          - America/Porto_Acre
+          - America/Rio_Branco
+          - America/Thunder_Bay
+          - America/Toronto
+          - Brazil/Acre
+          - Canada/Eastern
+          - Cuba
+          - EST5EDT
+          - Etc/GMT+5
+          - Jamaica
+          - SystemV/EST5
+          - SystemV/EST5EDT
+          - US/East-Indiana
+          - US/Eastern
+          - US/Michigan
+          - EST
+          - IET
+          - America/Anguilla
+          - America/Antigua
+          - America/Aruba
+          - America/Asuncion
+          - America/Barbados
+          - America/Blanc-Sablon
+          - America/Boa_Vista
+          - America/Campo_Grande
+          - America/Caracas
+          - America/Cuiaba
+          - America/Curacao
+          - America/Dominica
+          - America/Glace_Bay
+          - America/Goose_Bay
+          - America/Grenada
+          - America/Guadeloupe
+          - America/Guyana
+          - America/Halifax
+          - America/Kralendijk
+          - America/La_Paz
+          - America/Lower_Princes
+          - America/Manaus
+          - America/Marigot
+          - America/Martinique
+          - America/Moncton
+          - America/Montserrat
+          - America/Port_of_Spain
+          - America/Porto_Velho
+          - America/Puerto_Rico
+          - America/Santiago
+          - America/Santo_Domingo
+          - America/St_Barthelemy
+          - America/St_Kitts
+          - America/St_Lucia
+          - America/St_Thomas
+          - America/St_Vincent
+          - America/Thule
+          - America/Tortola
+          - America/Virgin
+          - Atlantic/Bermuda
+          - Brazil/West
+          - Canada/Atlantic
+          - Chile/Continental
+          - Etc/GMT+4
+          - SystemV/AST4
+          - SystemV/AST4ADT
+          - PRT
+          - America/St_Johns
+          - Canada/Newfoundland
+          - CNT
+          - America/Araguaina
+          - America/Argentina/Buenos_Aires
+          - America/Argentina/Catamarca
+          - America/Argentina/ComodRivadavia
+          - America/Argentina/Cordoba
+          - America/Argentina/Jujuy
+          - America/Argentina/La_Rioja
+          - America/Argentina/Mendoza
+          - America/Argentina/Rio_Gallegos
+          - America/Argentina/Salta
+          - America/Argentina/San_Juan
+          - America/Argentina/San_Luis
+          - America/Argentina/Tucuman
+          - America/Argentina/Ushuaia
+          - America/Bahia
+          - America/Belem
+          - America/Buenos_Aires
+          - America/Catamarca
+          - America/Cayenne
+          - America/Cordoba
+          - America/Fortaleza
+          - America/Godthab
+          - America/Jujuy
+          - America/Maceio
+          - America/Mendoza
+          - America/Miquelon
+          - America/Montevideo
+          - America/Nuuk
+          - America/Paramaribo
+          - America/Punta_Arenas
+          - America/Recife
+          - America/Rosario
+          - America/Santarem
+          - America/Sao_Paulo
+          - Antarctica/Palmer
+          - Antarctica/Rothera
+          - Atlantic/Stanley
+          - Brazil/East
+          - Etc/GMT+3
+          - AGT
+          - BET
+          - America/Noronha
+          - Atlantic/South_Georgia
+          - Brazil/DeNoronha
+          - Etc/GMT+2
+          - America/Scoresbysund
+          - Atlantic/Azores
+          - Atlantic/Cape_Verde
+          - Etc/GMT+1
+          - Africa/Abidjan
+          - Africa/Accra
+          - Africa/Bamako
+          - Africa/Banjul
+          - Africa/Bissau
+          - Africa/Casablanca
+          - Africa/Conakry
+          - Africa/Dakar
+          - Africa/El_Aaiun
+          - Africa/Freetown
+          - Africa/Lome
+          - Africa/Monrovia
+          - Africa/Nouakchott
+          - Africa/Ouagadougou
+          - Africa/Sao_Tome
+          - Africa/Timbuktu
+          - America/Danmarkshavn
+          - Antarctica/Troll
+          - Atlantic/Canary
+          - Atlantic/Faeroe
+          - Atlantic/Faroe
+          - Atlantic/Madeira
+          - Atlantic/Reykjavik
+          - Atlantic/St_Helena
+          - Eire
+          - Etc/GMT
+          - Etc/GMT+0
+          - Etc/GMT-0
+          - Etc/GMT0
+          - Etc/Greenwich
+          - Etc/UCT
+          - Etc/UTC
+          - Etc/Universal
+          - Etc/Zulu
+          - Europe/Belfast
+          - Europe/Dublin
+          - Europe/Guernsey
+          - Europe/Isle_of_Man
+          - Europe/Jersey
+          - Europe/Lisbon
+          - Europe/London
+          - GB
+          - GB-Eire
+          - GMT
+          - GMT0
+          - Greenwich
+          - Iceland
+          - Portugal
+          - UCT
+          - UTC
+          - Universal
+          - WET
+          - Zulu
+          - Africa/Algiers
+          - Africa/Bangui
+          - Africa/Brazzaville
+          - Africa/Ceuta
+          - Africa/Douala
+          - Africa/Kinshasa
+          - Africa/Lagos
+          - Africa/Libreville
+          - Africa/Luanda
+          - Africa/Malabo
+          - Africa/Ndjamena
+          - Africa/Niamey
+          - Africa/Porto-Novo
+          - Africa/Tunis
+          - Arctic/Longyearbyen
+          - Atlantic/Jan_Mayen
+          - CET
+          - Etc/GMT-1
+          - Europe/Amsterdam
+          - Europe/Andorra
+          - Europe/Belgrade
+          - Europe/Berlin
+          - Europe/Bratislava
+          - Europe/Brussels
+          - Europe/Budapest
+          - Europe/Busingen
+          - Europe/Copenhagen
+          - Europe/Gibraltar
+          - Europe/Ljubljana
+          - Europe/Luxembourg
+          - Europe/Madrid
+          - Europe/Malta
+          - Europe/Monaco
+          - Europe/Oslo
+          - Europe/Paris
+          - Europe/Podgorica
+          - Europe/Prague
+          - Europe/Rome
+          - Europe/San_Marino
+          - Europe/Sarajevo
+          - Europe/Skopje
+          - Europe/Stockholm
+          - Europe/Tirane
+          - Europe/Vaduz
+          - Europe/Vatican
+          - Europe/Vienna
+          - Europe/Warsaw
+          - Europe/Zagreb
+          - Europe/Zurich
+          - MET
+          - Poland
+          - ECT
+          - Africa/Blantyre
+          - Africa/Bujumbura
+          - Africa/Cairo
+          - Africa/Gaborone
+          - Africa/Harare
+          - Africa/Johannesburg
+          - Africa/Khartoum
+          - Africa/Kigali
+          - Africa/Lubumbashi
+          - Africa/Lusaka
+          - Africa/Maputo
+          - Africa/Maseru
+          - Africa/Mbabane
+          - Africa/Tripoli
+          - Africa/Windhoek
+          - Asia/Amman
+          - Asia/Beirut
+          - Asia/Damascus
+          - Asia/Famagusta
+          - Asia/Gaza
+          - Asia/Hebron
+          - Asia/Jerusalem
+          - Asia/Nicosia
+          - Asia/Tel_Aviv
+          - EET
+          - Egypt
+          - Etc/GMT-2
+          - Europe/Athens
+          - Europe/Bucharest
+          - Europe/Chisinau
+          - Europe/Helsinki
+          - Europe/Kaliningrad
+          - Europe/Kiev
+          - Europe/Mariehamn
+          - Europe/Nicosia
+          - Europe/Riga
+          - Europe/Sofia
+          - Europe/Tallinn
+          - Europe/Tiraspol
+          - Europe/Uzhgorod
+          - Europe/Vilnius
+          - Europe/Zaporozhye
+          - Israel
+          - Libya
+          - ART
+          - CAT
+          - Africa/Addis_Ababa
+          - Africa/Asmara
+          - Africa/Asmera
+          - Africa/Dar_es_Salaam
+          - Africa/Djibouti
+          - Africa/Juba
+          - Africa/Kampala
+          - Africa/Mogadishu
+          - Africa/Nairobi
+          - Antarctica/Syowa
+          - Asia/Aden
+          - Asia/Baghdad
+          - Asia/Bahrain
+          - Asia/Istanbul
+          - Asia/Kuwait
+          - Asia/Qatar
+          - Asia/Riyadh
+          - Etc/GMT-3
+          - Europe/Istanbul
+          - Europe/Kirov
+          - Europe/Minsk
+          - Europe/Moscow
+          - Europe/Simferopol
+          - Indian/Antananarivo
+          - Indian/Comoro
+          - Indian/Mayotte
+          - Turkey
+          - W-SU
+          - EAT
+          - Asia/Tehran
+          - Iran
+          - Asia/Baku
+          - Asia/Dubai
+          - Asia/Muscat
+          - Asia/Tbilisi
+          - Asia/Yerevan
+          - Etc/GMT-4
+          - Europe/Astrakhan
+          - Europe/Samara
+          - Europe/Saratov
+          - Europe/Ulyanovsk
+          - Europe/Volgograd
+          - Indian/Mahe
+          - Indian/Mauritius
+          - Indian/Reunion
+          - NET
+          - Asia/Kabul
+          - Antarctica/Mawson
+          - Asia/Aqtau
+          - Asia/Aqtobe
+          - Asia/Ashgabat
+          - Asia/Ashkhabad
+          - Asia/Atyrau
+          - Asia/Dushanbe
+          - Asia/Karachi
+          - Asia/Oral
+          - Asia/Qyzylorda
+          - Asia/Samarkand
+          - Asia/Tashkent
+          - Asia/Yekaterinburg
+          - Etc/GMT-5
+          - Indian/Kerguelen
+          - Indian/Maldives
+          - PLT
+          - Asia/Calcutta
+          - Asia/Colombo
+          - Asia/Kolkata
+          - IST
+          - Asia/Kathmandu
+          - Asia/Katmandu
+          - Antarctica/Vostok
+          - Asia/Almaty
+          - Asia/Bishkek
+          - Asia/Dacca
+          - Asia/Dhaka
+          - Asia/Kashgar
+          - Asia/Omsk
+          - Asia/Qostanay
+          - Asia/Thimbu
+          - Asia/Thimphu
+          - Asia/Urumqi
+          - Etc/GMT-6
+          - Indian/Chagos
+          - BST
+          - Asia/Rangoon
+          - Asia/Yangon
+          - Indian/Cocos
+          - Antarctica/Davis
+          - Asia/Bangkok
+          - Asia/Barnaul
+          - Asia/Ho_Chi_Minh
+          - Asia/Hovd
+          - Asia/Jakarta
+          - Asia/Krasnoyarsk
+          - Asia/Novokuznetsk
+          - Asia/Novosibirsk
+          - Asia/Phnom_Penh
+          - Asia/Pontianak
+          - Asia/Saigon
+          - Asia/Tomsk
+          - Asia/Vientiane
+          - Etc/GMT-7
+          - Indian/Christmas
+          - VST
+          - Antarctica/Casey
+          - Asia/Brunei
+          - Asia/Choibalsan
+          - Asia/Chongqing
+          - Asia/Chungking
+          - Asia/Harbin
+          - Asia/Hong_Kong
+          - Asia/Irkutsk
+          - Asia/Kuala_Lumpur
+          - Asia/Kuching
+          - Asia/Macao
+          - Asia/Macau
+          - Asia/Makassar
+          - Asia/Manila
+          - Asia/Shanghai
+          - Asia/Singapore
+          - Asia/Taipei
+          - Asia/Ujung_Pandang
+          - Asia/Ulaanbaatar
+          - Asia/Ulan_Bator
+          - Australia/Perth
+          - Australia/West
+          - Etc/GMT-8
+          - Hongkong
+          - PRC
+          - Singapore
+          - CTT
+          - Australia/Eucla
+          - Asia/Chita
+          - Asia/Dili
+          - Asia/Jayapura
+          - Asia/Khandyga
+          - Asia/Pyongyang
+          - Asia/Seoul
+          - Asia/Tokyo
+          - Asia/Yakutsk
+          - Etc/GMT-9
+          - Japan
+          - Pacific/Palau
+          - ROK
+          - JST
+          - Australia/Adelaide
+          - Australia/Broken_Hill
+          - Australia/Darwin
+          - Australia/North
+          - Australia/South
+          - Australia/Yancowinna
+          - ACT
+          - Antarctica/DumontDUrville
+          - Asia/Ust-Nera
+          - Asia/Vladivostok
+          - Australia/ACT
+          - Australia/Brisbane
+          - Australia/Canberra
+          - Australia/Currie
+          - Australia/Hobart
+          - Australia/Lindeman
+          - Australia/Melbourne
+          - Australia/NSW
+          - Australia/Queensland
+          - Australia/Sydney
+          - Australia/Tasmania
+          - Australia/Victoria
+          - Etc/GMT-10
+          - Pacific/Chuuk
+          - Pacific/Guam
+          - Pacific/Port_Moresby
+          - Pacific/Saipan
+          - Pacific/Truk
+          - Pacific/Yap
+          - AET
+          - Australia/LHI
+          - Australia/Lord_Howe
+          - Antarctica/Macquarie
+          - Asia/Magadan
+          - Asia/Sakhalin
+          - Asia/Srednekolymsk
+          - Etc/GMT-11
+          - Pacific/Bougainville
+          - Pacific/Efate
+          - Pacific/Guadalcanal
+          - Pacific/Kosrae
+          - Pacific/Norfolk
+          - Pacific/Noumea
+          - Pacific/Pohnpei
+          - Pacific/Ponape
+          - SST
+          - Antarctica/McMurdo
+          - Antarctica/South_Pole
+          - Asia/Anadyr
+          - Asia/Kamchatka
+          - Etc/GMT-12
+          - Kwajalein
+          - NZ
+          - Pacific/Auckland
+          - Pacific/Fiji
+          - Pacific/Funafuti
+          - Pacific/Kwajalein
+          - Pacific/Majuro
+          - Pacific/Nauru
+          - Pacific/Tarawa
+          - Pacific/Wake
+          - Pacific/Wallis
+          - NST
+          - NZ-CHAT
+          - Pacific/Chatham
+          - Etc/GMT-13
+          - Pacific/Apia
+          - Pacific/Enderbury
+          - Pacific/Fakaofo
+          - Pacific/Tongatapu
+          - MIT
+          - Etc/GMT-14
+          - Pacific/Kiritimati
+        row_module_id__mdl_name:
+          description: Module Name
+          type: string
+        usr_image_id:
+          description: Picture
+          type: object
+        usr_subhead:
+          description: Sub-head
+          type: boolean
+        usr_minrows:
+          description: Min size of lists
+          type: integer
+        row_module_id:
+          description: Module
+          type: string
+        usr_login:
+          description: Login
+          type: string
+        usr_country:
+          description: Country
+          type: string
+          enum:
+          - FR
+          - UK
+          - ES
+          - DE
+          - BE
+          - CH
+          - IE
+          - US
+          - CA
+        usr_title:
+          description: Title
+          type: string
+          enum:
+          - MR
+          - MRS
+          - MS
+        usr_logout:
+          description: Logout
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        usr_home_id__viw_name:
+          description: Home page
+          type: string
+        usr_menu_defdomain_id:
+          description: Domain menu by default
+          type: string
+        usr_menu_defhidden:
+          description: deprecated
+          type: boolean
+        usr_menu_defcollapsed:
+          description: Menu collapsed by default
+          type: boolean
+        usr_uuid:
+          description: UUID
+          type: string
+        usr_last_logon:
+          description: Last logon
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        usr_first_name:
+          description: First name
+          type: string
+        usr_home_num:
+          description: Home phone
+          type: string
+        usr_email:
+          description: Email address
+          type: string
+        usr_active:
+          description: Active
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+        usr_menu:
+          description: Menu visible
+          type: boolean
+        usr_zipcode:
+          description: Postal/ZIP code
+          type: string
+        usr_address1:
+          description: Address line 1
+          type: string
+        usr_address2:
+          description: Address line 2
+          type: string
+        usr_last_name:
+          description: Last name
+          type: string
+        usr_cell_num:
+          description: Mobile/cellular phone number
+          type: string
+        usr_menu_defdomain_id__obd_name:
+          description: Default opened domain
+          type: string
+        usr_city:
+          description: City
+          type: string
+        usr_lang:
+          description: Language
+          type: string
+          enum:
+          - ENU
+          - FRA
+        usr_maxrows:
+          description: Max size of lists
+          type: integer
+        row_id:
+          description: Unique technical row ID
+          type: string
+        usr_work_num:
+          description: Work phone number
+          type: string
+        usr_home_id:
+          description: Home page
+          type: string
+        usr_state:
+          description: State
+          type: string
+        usr_extra:
+          description: Extra zone visible
+          type: boolean
+        usr_dateformat:
+          description: Date format
+          type: string
+          enum:
+          - YMD
+          - DMY
+          - MDY
+          - CHF
+    ArrayOfPrjVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjVersion'
+    PrjLabel:
+      type: object
+      properties:
+        prjLblName:
+          description: Name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    PrjLblItm:
+      type: object
+      properties:
+        prjLblitmLblId:
+          description: prj lblitm lbl id
+          type: string
+        prjLblitmItmId:
+          description: Labels
+          type: string
+        prjLblitmLblId__prjLblName:
+          description: prj lblitm lbl id Name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    ArrayOfPrjUser:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjUser'
+    ActionResult:
+      type: object
+      properties:
+        result:
+          description: Action result
+          type: string
+    TreeviewData:
+      type: object
+      properties:
+        item:
+          description: Object item with lists of linked objects' items
+          type: object
+    ArrayOfPrjItmAttachements:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjItmAttachements'
+    ArrayOfPrjLabel:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjLabel'
+    Error400:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 400
+    Error401:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 401
+    Error500:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 500
+    PrjItmAttachements:
+      type: object
+      properties:
+        prjItattItmId__prjItmNumber:
+          description: Item Reference
+          type: integer
+        prjItattItmId:
+          description: Item
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+        prjItattFile:
+          description: File
+          type: object
+    ArrayOfPrjLblItm:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjLblItm'
+    ArrayOfPrjRole:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjRole'
+    Error403:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 403
+  securitySchemes:
+    basicAuth:
+      scheme: basic
+      type: http
+    bearerAuth:
+      bearerFormat: Simplicite token
+      scheme: bearer
+      type: http
+openapi: 3.0.2
+paths:
+  /rest/PrjItem:
+    get:
+      summary: Search PrjItem business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjitem-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjItem'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmVrsId
+        description: Search filter for Version
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmVrsId__prjVrsPrjId
+        description: Search filter for Version Project
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmVrsId__prjVrsPrjId__prjPrjName
+        description: Search filter for Project
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmVrsId__prjVrsVersion
+        description: Search filter for Version
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmVrsId__prjVrsDueDate
+        description: Search filter for Version Due Date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmUsrId
+        description: Search filter for Assignee
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmUsrId__usr_login
+        description: Search filter for Login
+        required: false
+      - schema:
+          type: string
+          enum:
+          - DRAFT
+          - BACKLOG
+          - SPRINT
+          - DOING
+          - DONE
+          - CLOSED
+          - REJECTED
+        in: query
+        name: prjItmStatus
+        description: Search filter for Status
+        required: false
+      - schema:
+          type: string
+          enum:
+          - LOW
+          - NORMAL
+          - HIGH
+          - URGENT
+        in: query
+        name: prjItmPriority
+        description: Search filter for Priority
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmCreated
+        description: Search filter for Created
+        required: false
+      - schema:
+          type: number
+        in: query
+        name: prjItmProgress
+        description: Search filter for Progress
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmDescription
+        description: Search filter for Description
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: prjItmNumber
+        description: Search filter for Reference
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmTitle
+        description: Search filter for Title
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItmPrjId
+        description: Search filter for Project
+        required: false
+      tags:
+      - PrjItem
+  /rest/PrjProject/{row_id}:
+    post:
+      summary: Create a new PrjProjectbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjProject'
+      operationId: obj-prjproject-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjProject'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjProject
+    get:
+      summary: Get a PrjProject business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjproject-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjProject'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjProject
+    delete:
+      summary: Delete a PrjProject business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjproject-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjProject
+    put:
+      summary: Update a PrjProjectbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjProject'
+      operationId: obj-prjproject-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjProject'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjProject
+  /rest/PrjVersion/{row_id}:
+    post:
+      summary: Create a new PrjVersionbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjVersion'
+      operationId: obj-prjversion-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjVersion'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjVersion
+    get:
+      summary: Get a PrjVersion business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjversion-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjVersion'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjVersion
+    delete:
+      summary: Delete a PrjVersion business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjversion-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjVersion
+    put:
+      summary: Update a PrjVersionbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjVersion'
+      operationId: obj-prjversion-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjVersion'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjVersion
+  /rest/PrjRole:
+    get:
+      summary: Search PrjRole business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjrole-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjRole'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjRolPrjId
+        description: Search filter for Project
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjRolPrjId__prjPrjName
+        description: Search filter for Project Name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjRolUsrId
+        description: Search filter for User
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjRolUsrId__usr_login
+        description: Search filter for Login
+        required: false
+      - schema:
+          type: string
+          enum:
+          - PRJ_MOA
+          - PRJ_MOE
+          - PRJ_READONLY
+        in: query
+        name: prjRolType
+        description: Search filter for Type
+        required: false
+      tags:
+      - PrjRole
+  /rest/PrjUser/{row_id}/publication:User-DEFAULT:
+    get:
+      summary: Call a custom publication for a PrjUser business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-prjuser-publication-user-default
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjUser
+  /login:
+    get:
+      summary: Login (obtain bearer token)
+      security:
+      - basicAuth: []
+      operationId: login
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json: {}
+            text/plain: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      parameters:
+      - schema:
+          type: string
+          enum:
+          - json
+          - oauth2
+          - token
+        in: query
+        name: _output
+        description: Optional output format
+        required: false
+      tags:
+      - session
+  /rest/PrjItmAttachements/{row_id}:
+    post:
+      summary: Create a new PrjItmAttachementsbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjItmAttachements'
+      operationId: obj-prjitmattachements-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjItmAttachements'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjItmAttachements
+    get:
+      summary: Get a PrjItmAttachements business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjitmattachements-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjItmAttachements'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjItmAttachements
+    delete:
+      summary: Delete a PrjItmAttachements business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjitmattachements-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjItmAttachements
+    put:
+      summary: Update a PrjItmAttachementsbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjItmAttachements'
+      operationId: obj-prjitmattachements-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjItmAttachements'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjItmAttachements
+  /rest/PrjUser/{row_id}/publication:User-EXCEL:
+    get:
+      summary: Call a custom publication for a PrjUser business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-prjuser-publication-user-excel
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjUser
+  /rest/PrjLblItm:
+    get:
+      summary: Search PrjLblItm business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjlblitm-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjLblItm'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjLblitmLblId
+        description: Search filter for prj lblitm lbl id
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjLblitmLblId__prjLblName
+        description: Search filter for prj lblitm lbl id Name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjLblitmItmId
+        description: Search filter for Labels
+        required: false
+      tags:
+      - PrjLblItm
+  /logout:
+    get:
+      summary: Logout (revoke bearer token)
+      security:
+      - bearerAuth: []
+      operationId: logout
+      responses:
+        '200':
+          description: Successfull logout
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      tags:
+      - session
+  /rest/PrjLabel:
+    get:
+      summary: Search PrjLabel business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjlabel-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjLabel'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjLblName
+        description: Search filter for Name
+        required: false
+      tags:
+      - PrjLabel
+  /rest/PrjLblItm/{row_id}:
+    post:
+      summary: Create a new PrjLblItmbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjLblItm'
+      operationId: obj-prjlblitm-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjLblItm'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjLblItm
+    get:
+      summary: Get a PrjLblItm business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjlblitm-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjLblItm'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjLblItm
+    delete:
+      summary: Delete a PrjLblItm business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjlblitm-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjLblItm
+    put:
+      summary: Update a PrjLblItmbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjLblItm'
+      operationId: obj-prjlblitm-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjLblItm'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjLblItm
+  /rest/PrjRole/{row_id}:
+    post:
+      summary: Create a new PrjRolebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjRole'
+      operationId: obj-prjrole-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjRole'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjRole
+    get:
+      summary: Get a PrjRole business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjrole-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjRole'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjRole
+    delete:
+      summary: Delete a PrjRole business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjrole-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjRole
+    put:
+      summary: Update a PrjRolebusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjRole'
+      operationId: obj-prjrole-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjRole'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjRole
+  /rest/PrjUser/{row_id}:
+    post:
+      summary: Create a new PrjUserbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjUser'
+      operationId: obj-prjuser-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjUser'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjUser
+    get:
+      summary: Get a PrjUser business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjuser-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjUser'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjUser
+    delete:
+      summary: Delete a PrjUser business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjuser-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjUser
+    put:
+      summary: Update a PrjUserbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjUser'
+      operationId: obj-prjuser-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjUser'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjUser
+  /rest/PrjLabel/{row_id}:
+    post:
+      summary: Create a new PrjLabelbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjLabel'
+      operationId: obj-prjlabel-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjLabel'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjLabel
+    get:
+      summary: Get a PrjLabel business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjlabel-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjLabel'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjLabel
+    delete:
+      summary: Delete a PrjLabel business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjlabel-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjLabel
+    put:
+      summary: Update a PrjLabelbusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjLabel'
+      operationId: obj-prjlabel-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjLabel'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjLabel
+  /rest/PrjUser/{row_id}/publication:User-WORD:
+    get:
+      summary: Call a custom publication for a PrjUser business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-prjuser-publication-user-word
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjUser
+  /:
+    get:
+      summary: Get user session information
+      security:
+      - bearerAuth: []
+      operationId: info
+      responses:
+        '200':
+          description: Success in getting user session information
+          content:
+            application/json: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: texts
+        description: Texts?
+        required: false
+      tags:
+      - session
+  /rest/PrjVersion:
+    get:
+      summary: Search PrjVersion business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjversion-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjVersion'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjVrsPrjId
+        description: Search filter for Project
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjVrsPrjId__prjPrjName
+        description: Search filter for Project Name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjVrsVersion
+        description: Search filter for Version
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjVrsDueDate
+        description: Search filter for Due Date
+        required: false
+      tags:
+      - PrjVersion
+  /rest/PrjItmAttachements:
+    get:
+      summary: Search PrjItmAttachements business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjitmattachements-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjItmAttachements'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItattItmId
+        description: Search filter for Item
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: prjItattItmId__prjItmNumber
+        description: Search filter for Item Reference
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjItattFile
+        description: Search filter for File
+        required: false
+      tags:
+      - PrjItmAttachements
+  /rest/PrjUser:
+    get:
+      summary: Search PrjUser business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjuser-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjUser'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_login
+        description: Search filter for Login
+        required: false
+      - schema:
+          type: string
+          enum:
+          - ENU
+          - FRA
+        in: query
+        name: usr_lang
+        description: Search filter for Language
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_image_id
+        description: Search filter for Picture
+        required: false
+      - schema:
+          type: string
+          enum:
+          - Etc/GMT+12
+          - Etc/GMT+11
+          - Pacific/Midway
+          - Pacific/Niue
+          - Pacific/Pago_Pago
+          - Pacific/Samoa
+          - US/Samoa
+          - America/Adak
+          - America/Atka
+          - Etc/GMT+10
+          - Pacific/Honolulu
+          - Pacific/Johnston
+          - Pacific/Rarotonga
+          - Pacific/Tahiti
+          - SystemV/HST10
+          - US/Aleutian
+          - US/Hawaii
+          - HST
+          - Pacific/Marquesas
+          - America/Anchorage
+          - America/Juneau
+          - America/Metlakatla
+          - America/Nome
+          - America/Sitka
+          - America/Yakutat
+          - Etc/GMT+9
+          - Pacific/Gambier
+          - SystemV/YST9
+          - SystemV/YST9YDT
+          - US/Alaska
+          - AST
+          - America/Ensenada
+          - America/Los_Angeles
+          - America/Santa_Isabel
+          - America/Tijuana
+          - America/Vancouver
+          - Canada/Pacific
+          - Etc/GMT+8
+          - Mexico/BajaNorte
+          - PST8PDT
+          - Pacific/Pitcairn
+          - SystemV/PST8
+          - SystemV/PST8PDT
+          - US/Pacific
+          - US/Pacific-New
+          - PST
+          - America/Boise
+          - America/Cambridge_Bay
+          - America/Chihuahua
+          - America/Creston
+          - America/Dawson
+          - America/Dawson_Creek
+          - America/Denver
+          - America/Edmonton
+          - America/Fort_Nelson
+          - America/Hermosillo
+          - America/Inuvik
+          - America/Mazatlan
+          - America/Ojinaga
+          - America/Phoenix
+          - America/Shiprock
+          - America/Whitehorse
+          - America/Yellowknife
+          - Canada/Mountain
+          - Canada/Yukon
+          - Etc/GMT+7
+          - MST7MDT
+          - Mexico/BajaSur
+          - Navajo
+          - SystemV/MST7
+          - SystemV/MST7MDT
+          - US/Arizona
+          - US/Mountain
+          - MST
+          - PNT
+          - America/Bahia_Banderas
+          - America/Belize
+          - America/Chicago
+          - America/Costa_Rica
+          - America/El_Salvador
+          - America/Guatemala
+          - America/Indiana/Knox
+          - America/Indiana/Tell_City
+          - America/Knox_IN
+          - America/Managua
+          - America/Matamoros
+          - America/Menominee
+          - America/Merida
+          - America/Mexico_City
+          - America/Monterrey
+          - America/North_Dakota/Beulah
+          - America/North_Dakota/Center
+          - America/North_Dakota/New_Salem
+          - America/Rainy_River
+          - America/Rankin_Inlet
+          - America/Regina
+          - America/Resolute
+          - America/Swift_Current
+          - America/Tegucigalpa
+          - America/Winnipeg
+          - CST6CDT
+          - Canada/Central
+          - Canada/Saskatchewan
+          - Chile/EasterIsland
+          - Etc/GMT+6
+          - Mexico/General
+          - Pacific/Easter
+          - Pacific/Galapagos
+          - SystemV/CST6
+          - SystemV/CST6CDT
+          - US/Central
+          - US/Indiana-Starke
+          - CST
+          - America/Atikokan
+          - America/Bogota
+          - America/Cancun
+          - America/Cayman
+          - America/Coral_Harbour
+          - America/Detroit
+          - America/Eirunepe
+          - America/Fort_Wayne
+          - America/Grand_Turk
+          - America/Guayaquil
+          - America/Havana
+          - America/Indiana/Indianapolis
+          - America/Indiana/Marengo
+          - America/Indiana/Petersburg
+          - America/Indiana/Vevay
+          - America/Indiana/Vincennes
+          - America/Indiana/Winamac
+          - America/Indianapolis
+          - America/Iqaluit
+          - America/Jamaica
+          - America/Kentucky/Louisville
+          - America/Kentucky/Monticello
+          - America/Lima
+          - America/Louisville
+          - America/Montreal
+          - America/Nassau
+          - America/New_York
+          - America/Nipigon
+          - America/Panama
+          - America/Pangnirtung
+          - America/Port-au-Prince
+          - America/Porto_Acre
+          - America/Rio_Branco
+          - America/Thunder_Bay
+          - America/Toronto
+          - Brazil/Acre
+          - Canada/Eastern
+          - Cuba
+          - EST5EDT
+          - Etc/GMT+5
+          - Jamaica
+          - SystemV/EST5
+          - SystemV/EST5EDT
+          - US/East-Indiana
+          - US/Eastern
+          - US/Michigan
+          - EST
+          - IET
+          - America/Anguilla
+          - America/Antigua
+          - America/Aruba
+          - America/Asuncion
+          - America/Barbados
+          - America/Blanc-Sablon
+          - America/Boa_Vista
+          - America/Campo_Grande
+          - America/Caracas
+          - America/Cuiaba
+          - America/Curacao
+          - America/Dominica
+          - America/Glace_Bay
+          - America/Goose_Bay
+          - America/Grenada
+          - America/Guadeloupe
+          - America/Guyana
+          - America/Halifax
+          - America/Kralendijk
+          - America/La_Paz
+          - America/Lower_Princes
+          - America/Manaus
+          - America/Marigot
+          - America/Martinique
+          - America/Moncton
+          - America/Montserrat
+          - America/Port_of_Spain
+          - America/Porto_Velho
+          - America/Puerto_Rico
+          - America/Santiago
+          - America/Santo_Domingo
+          - America/St_Barthelemy
+          - America/St_Kitts
+          - America/St_Lucia
+          - America/St_Thomas
+          - America/St_Vincent
+          - America/Thule
+          - America/Tortola
+          - America/Virgin
+          - Atlantic/Bermuda
+          - Brazil/West
+          - Canada/Atlantic
+          - Chile/Continental
+          - Etc/GMT+4
+          - SystemV/AST4
+          - SystemV/AST4ADT
+          - PRT
+          - America/St_Johns
+          - Canada/Newfoundland
+          - CNT
+          - America/Araguaina
+          - America/Argentina/Buenos_Aires
+          - America/Argentina/Catamarca
+          - America/Argentina/ComodRivadavia
+          - America/Argentina/Cordoba
+          - America/Argentina/Jujuy
+          - America/Argentina/La_Rioja
+          - America/Argentina/Mendoza
+          - America/Argentina/Rio_Gallegos
+          - America/Argentina/Salta
+          - America/Argentina/San_Juan
+          - America/Argentina/San_Luis
+          - America/Argentina/Tucuman
+          - America/Argentina/Ushuaia
+          - America/Bahia
+          - America/Belem
+          - America/Buenos_Aires
+          - America/Catamarca
+          - America/Cayenne
+          - America/Cordoba
+          - America/Fortaleza
+          - America/Godthab
+          - America/Jujuy
+          - America/Maceio
+          - America/Mendoza
+          - America/Miquelon
+          - America/Montevideo
+          - America/Nuuk
+          - America/Paramaribo
+          - America/Punta_Arenas
+          - America/Recife
+          - America/Rosario
+          - America/Santarem
+          - America/Sao_Paulo
+          - Antarctica/Palmer
+          - Antarctica/Rothera
+          - Atlantic/Stanley
+          - Brazil/East
+          - Etc/GMT+3
+          - AGT
+          - BET
+          - America/Noronha
+          - Atlantic/South_Georgia
+          - Brazil/DeNoronha
+          - Etc/GMT+2
+          - America/Scoresbysund
+          - Atlantic/Azores
+          - Atlantic/Cape_Verde
+          - Etc/GMT+1
+          - Africa/Abidjan
+          - Africa/Accra
+          - Africa/Bamako
+          - Africa/Banjul
+          - Africa/Bissau
+          - Africa/Casablanca
+          - Africa/Conakry
+          - Africa/Dakar
+          - Africa/El_Aaiun
+          - Africa/Freetown
+          - Africa/Lome
+          - Africa/Monrovia
+          - Africa/Nouakchott
+          - Africa/Ouagadougou
+          - Africa/Sao_Tome
+          - Africa/Timbuktu
+          - America/Danmarkshavn
+          - Antarctica/Troll
+          - Atlantic/Canary
+          - Atlantic/Faeroe
+          - Atlantic/Faroe
+          - Atlantic/Madeira
+          - Atlantic/Reykjavik
+          - Atlantic/St_Helena
+          - Eire
+          - Etc/GMT
+          - Etc/GMT+0
+          - Etc/GMT-0
+          - Etc/GMT0
+          - Etc/Greenwich
+          - Etc/UCT
+          - Etc/UTC
+          - Etc/Universal
+          - Etc/Zulu
+          - Europe/Belfast
+          - Europe/Dublin
+          - Europe/Guernsey
+          - Europe/Isle_of_Man
+          - Europe/Jersey
+          - Europe/Lisbon
+          - Europe/London
+          - GB
+          - GB-Eire
+          - GMT
+          - GMT0
+          - Greenwich
+          - Iceland
+          - Portugal
+          - UCT
+          - UTC
+          - Universal
+          - WET
+          - Zulu
+          - Africa/Algiers
+          - Africa/Bangui
+          - Africa/Brazzaville
+          - Africa/Ceuta
+          - Africa/Douala
+          - Africa/Kinshasa
+          - Africa/Lagos
+          - Africa/Libreville
+          - Africa/Luanda
+          - Africa/Malabo
+          - Africa/Ndjamena
+          - Africa/Niamey
+          - Africa/Porto-Novo
+          - Africa/Tunis
+          - Arctic/Longyearbyen
+          - Atlantic/Jan_Mayen
+          - CET
+          - Etc/GMT-1
+          - Europe/Amsterdam
+          - Europe/Andorra
+          - Europe/Belgrade
+          - Europe/Berlin
+          - Europe/Bratislava
+          - Europe/Brussels
+          - Europe/Budapest
+          - Europe/Busingen
+          - Europe/Copenhagen
+          - Europe/Gibraltar
+          - Europe/Ljubljana
+          - Europe/Luxembourg
+          - Europe/Madrid
+          - Europe/Malta
+          - Europe/Monaco
+          - Europe/Oslo
+          - Europe/Paris
+          - Europe/Podgorica
+          - Europe/Prague
+          - Europe/Rome
+          - Europe/San_Marino
+          - Europe/Sarajevo
+          - Europe/Skopje
+          - Europe/Stockholm
+          - Europe/Tirane
+          - Europe/Vaduz
+          - Europe/Vatican
+          - Europe/Vienna
+          - Europe/Warsaw
+          - Europe/Zagreb
+          - Europe/Zurich
+          - MET
+          - Poland
+          - ECT
+          - Africa/Blantyre
+          - Africa/Bujumbura
+          - Africa/Cairo
+          - Africa/Gaborone
+          - Africa/Harare
+          - Africa/Johannesburg
+          - Africa/Khartoum
+          - Africa/Kigali
+          - Africa/Lubumbashi
+          - Africa/Lusaka
+          - Africa/Maputo
+          - Africa/Maseru
+          - Africa/Mbabane
+          - Africa/Tripoli
+          - Africa/Windhoek
+          - Asia/Amman
+          - Asia/Beirut
+          - Asia/Damascus
+          - Asia/Famagusta
+          - Asia/Gaza
+          - Asia/Hebron
+          - Asia/Jerusalem
+          - Asia/Nicosia
+          - Asia/Tel_Aviv
+          - EET
+          - Egypt
+          - Etc/GMT-2
+          - Europe/Athens
+          - Europe/Bucharest
+          - Europe/Chisinau
+          - Europe/Helsinki
+          - Europe/Kaliningrad
+          - Europe/Kiev
+          - Europe/Mariehamn
+          - Europe/Nicosia
+          - Europe/Riga
+          - Europe/Sofia
+          - Europe/Tallinn
+          - Europe/Tiraspol
+          - Europe/Uzhgorod
+          - Europe/Vilnius
+          - Europe/Zaporozhye
+          - Israel
+          - Libya
+          - ART
+          - CAT
+          - Africa/Addis_Ababa
+          - Africa/Asmara
+          - Africa/Asmera
+          - Africa/Dar_es_Salaam
+          - Africa/Djibouti
+          - Africa/Juba
+          - Africa/Kampala
+          - Africa/Mogadishu
+          - Africa/Nairobi
+          - Antarctica/Syowa
+          - Asia/Aden
+          - Asia/Baghdad
+          - Asia/Bahrain
+          - Asia/Istanbul
+          - Asia/Kuwait
+          - Asia/Qatar
+          - Asia/Riyadh
+          - Etc/GMT-3
+          - Europe/Istanbul
+          - Europe/Kirov
+          - Europe/Minsk
+          - Europe/Moscow
+          - Europe/Simferopol
+          - Indian/Antananarivo
+          - Indian/Comoro
+          - Indian/Mayotte
+          - Turkey
+          - W-SU
+          - EAT
+          - Asia/Tehran
+          - Iran
+          - Asia/Baku
+          - Asia/Dubai
+          - Asia/Muscat
+          - Asia/Tbilisi
+          - Asia/Yerevan
+          - Etc/GMT-4
+          - Europe/Astrakhan
+          - Europe/Samara
+          - Europe/Saratov
+          - Europe/Ulyanovsk
+          - Europe/Volgograd
+          - Indian/Mahe
+          - Indian/Mauritius
+          - Indian/Reunion
+          - NET
+          - Asia/Kabul
+          - Antarctica/Mawson
+          - Asia/Aqtau
+          - Asia/Aqtobe
+          - Asia/Ashgabat
+          - Asia/Ashkhabad
+          - Asia/Atyrau
+          - Asia/Dushanbe
+          - Asia/Karachi
+          - Asia/Oral
+          - Asia/Qyzylorda
+          - Asia/Samarkand
+          - Asia/Tashkent
+          - Asia/Yekaterinburg
+          - Etc/GMT-5
+          - Indian/Kerguelen
+          - Indian/Maldives
+          - PLT
+          - Asia/Calcutta
+          - Asia/Colombo
+          - Asia/Kolkata
+          - IST
+          - Asia/Kathmandu
+          - Asia/Katmandu
+          - Antarctica/Vostok
+          - Asia/Almaty
+          - Asia/Bishkek
+          - Asia/Dacca
+          - Asia/Dhaka
+          - Asia/Kashgar
+          - Asia/Omsk
+          - Asia/Qostanay
+          - Asia/Thimbu
+          - Asia/Thimphu
+          - Asia/Urumqi
+          - Etc/GMT-6
+          - Indian/Chagos
+          - BST
+          - Asia/Rangoon
+          - Asia/Yangon
+          - Indian/Cocos
+          - Antarctica/Davis
+          - Asia/Bangkok
+          - Asia/Barnaul
+          - Asia/Ho_Chi_Minh
+          - Asia/Hovd
+          - Asia/Jakarta
+          - Asia/Krasnoyarsk
+          - Asia/Novokuznetsk
+          - Asia/Novosibirsk
+          - Asia/Phnom_Penh
+          - Asia/Pontianak
+          - Asia/Saigon
+          - Asia/Tomsk
+          - Asia/Vientiane
+          - Etc/GMT-7
+          - Indian/Christmas
+          - VST
+          - Antarctica/Casey
+          - Asia/Brunei
+          - Asia/Choibalsan
+          - Asia/Chongqing
+          - Asia/Chungking
+          - Asia/Harbin
+          - Asia/Hong_Kong
+          - Asia/Irkutsk
+          - Asia/Kuala_Lumpur
+          - Asia/Kuching
+          - Asia/Macao
+          - Asia/Macau
+          - Asia/Makassar
+          - Asia/Manila
+          - Asia/Shanghai
+          - Asia/Singapore
+          - Asia/Taipei
+          - Asia/Ujung_Pandang
+          - Asia/Ulaanbaatar
+          - Asia/Ulan_Bator
+          - Australia/Perth
+          - Australia/West
+          - Etc/GMT-8
+          - Hongkong
+          - PRC
+          - Singapore
+          - CTT
+          - Australia/Eucla
+          - Asia/Chita
+          - Asia/Dili
+          - Asia/Jayapura
+          - Asia/Khandyga
+          - Asia/Pyongyang
+          - Asia/Seoul
+          - Asia/Tokyo
+          - Asia/Yakutsk
+          - Etc/GMT-9
+          - Japan
+          - Pacific/Palau
+          - ROK
+          - JST
+          - Australia/Adelaide
+          - Australia/Broken_Hill
+          - Australia/Darwin
+          - Australia/North
+          - Australia/South
+          - Australia/Yancowinna
+          - ACT
+          - Antarctica/DumontDUrville
+          - Asia/Ust-Nera
+          - Asia/Vladivostok
+          - Australia/ACT
+          - Australia/Brisbane
+          - Australia/Canberra
+          - Australia/Currie
+          - Australia/Hobart
+          - Australia/Lindeman
+          - Australia/Melbourne
+          - Australia/NSW
+          - Australia/Queensland
+          - Australia/Sydney
+          - Australia/Tasmania
+          - Australia/Victoria
+          - Etc/GMT-10
+          - Pacific/Chuuk
+          - Pacific/Guam
+          - Pacific/Port_Moresby
+          - Pacific/Saipan
+          - Pacific/Truk
+          - Pacific/Yap
+          - AET
+          - Australia/LHI
+          - Australia/Lord_Howe
+          - Antarctica/Macquarie
+          - Asia/Magadan
+          - Asia/Sakhalin
+          - Asia/Srednekolymsk
+          - Etc/GMT-11
+          - Pacific/Bougainville
+          - Pacific/Efate
+          - Pacific/Guadalcanal
+          - Pacific/Kosrae
+          - Pacific/Norfolk
+          - Pacific/Noumea
+          - Pacific/Pohnpei
+          - Pacific/Ponape
+          - SST
+          - Antarctica/McMurdo
+          - Antarctica/South_Pole
+          - Asia/Anadyr
+          - Asia/Kamchatka
+          - Etc/GMT-12
+          - Kwajalein
+          - NZ
+          - Pacific/Auckland
+          - Pacific/Fiji
+          - Pacific/Funafuti
+          - Pacific/Kwajalein
+          - Pacific/Majuro
+          - Pacific/Nauru
+          - Pacific/Tarawa
+          - Pacific/Wake
+          - Pacific/Wallis
+          - NST
+          - NZ-CHAT
+          - Pacific/Chatham
+          - Etc/GMT-13
+          - Pacific/Apia
+          - Pacific/Enderbury
+          - Pacific/Fakaofo
+          - Pacific/Tongatapu
+          - MIT
+          - Etc/GMT-14
+          - Pacific/Kiritimati
+        in: query
+        name: usr_timezone
+        description: Search filter for Time zone
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: usr_minrows
+        description: Search filter for Min size of lists
+        required: false
+      - schema:
+          type: integer
+        in: query
+        name: usr_maxrows
+        description: Search filter for Max size of lists
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+        in: query
+        name: usr_active
+        description: Search filter for Active
+        required: false
+      - schema:
+          type: string
+          enum:
+          - MR
+          - MRS
+          - MS
+        in: query
+        name: usr_title
+        description: Search filter for Title
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_last_name
+        description: Search filter for Last name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_first_name
+        description: Search filter for First name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_email
+        description: Search filter for Email address
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_id
+        description: Search filter for Home page
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_id__viw_name
+        description: Search filter for Home page
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_work_num
+        description: Search filter for Work phone number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_num
+        description: Search filter for Home phone
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_cell_num
+        description: Search filter for Mobile/cellular phone number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_address1
+        description: Search filter for Address line 1
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_address2
+        description: Search filter for Address line 2
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_zipcode
+        description: Search filter for Postal/ZIP code
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_city
+        description: Search filter for City
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_state
+        description: Search filter for State
+        required: false
+      - schema:
+          type: string
+          enum:
+          - FR
+          - UK
+          - ES
+          - DE
+          - BE
+          - CH
+          - IE
+          - US
+          - CA
+        in: query
+        name: usr_country
+        description: Search filter for Country
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: row_module_id
+        description: Search filter for Module
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: row_module_id__mdl_name
+        description: Search filter for Module Name
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_menu
+        description: Search filter for Menu visible
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_menu_defhidden
+        description: Search filter for deprecated
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_menu_defcollapsed
+        description: Search filter for Menu collapsed by default
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_menu_defdomain_id
+        description: Search filter for Domain menu by default
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_menu_defdomain_id__obd_name
+        description: Search filter for Default opened domain
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_extra
+        description: Search filter for Extra zone visible
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: usr_subhead
+        description: Search filter for Sub-head
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_logout
+        description: Search filter for Logout
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_last_logon
+        description: Search filter for Last logon
+        required: false
+      - schema:
+          type: string
+          enum:
+          - YMD
+          - DMY
+          - MDY
+          - CHF
+        in: query
+        name: usr_dateformat
+        description: Search filter for Date format
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_uuid
+        description: Search filter for UUID
+        required: false
+      tags:
+      - PrjUser
+  /rest/PrjProject:
+    get:
+      summary: Search PrjProject business object records or get contextualized metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-prjproject-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfPrjProject'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjPrjName
+        description: Search filter for Name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: prjPrjDescription
+        description: Search filter for Description
+        required: false
+      tags:
+      - PrjProject
+  /rest/PrjItem/{row_id}:
+    post:
+      summary: Create a new PrjItembusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjItem'
+      operationId: obj-prjitem-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjItem'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjItem
+    get:
+      summary: Get a PrjItem business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjitem-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjItem'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - PrjItem
+    delete:
+      summary: Delete a PrjItem business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-prjitem-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjItem
+    put:
+      summary: Update a PrjItembusiness object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PrjItem'
+      operationId: obj-prjitem-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PrjItem'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjItem
+info:
+  license:
+    name: Simplicite license
+    url: http://www.simplicitesoftware.com
+  contact:
+    name: Simplicite Software
+    url: http://www.simplicitesoftware.com
+    email: contact@simplicitesoftware.com
+  description: API for module Projects
+  title: Projects
+  version: '1'
+tags:
+- name: PrjItem
+  description: Work Item
+- name: PrjItmAttachements
+  description: Attachement
+- name: PrjLabel
+  description: Label
+- name: PrjLblItm
+  description: Prj lbl itm
+- name: PrjProject
+  description: Project
+- name: PrjRole
+  description: Role
+- name: PrjUser
+  description: User
+- name: PrjVersion
+  description: Version
