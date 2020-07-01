@@ -7,8 +7,11 @@
 		<mdl_name>Projects</mdl_name>
 		<mdl_version>1</mdl_version>
 		<mdl_prefix>prj</mdl_prefix>
-		<mdl_url/>
-		<mdl_lastupd>2020-07-01 15:05:32</mdl_lastupd>
+		<mdl_url><![CDATA[{
+	"type": "git",
+	"origin": { "uri": "https://github.com/simplicitesoftware/module-projects.git" }
+}]]></mdl_url>
+		<mdl_lastupd>2020-07-01 15:08:04</mdl_lastupd>
 		<mdl_comment><![CDATA[Software project management]]></mdl_comment>
 	</data>
 </object>
