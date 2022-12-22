@@ -24,7 +24,7 @@
       "grp_comment": null,
       "grp_type": ["G"],
       "grp_parent_id__grp_name": null,
-      "grp_home_id__viw_name": "ProjectsScope",
+      "grp_home_id__viw_name": null,
       "row_module_id__mdl_name": "Projects"
      }
     },
@@ -36,7 +36,7 @@
       "grp_comment": null,
       "grp_type": ["G"],
       "grp_parent_id__grp_name": null,
-      "grp_home_id__viw_name": "ProjectsScope",
+      "grp_home_id__viw_name": null,
       "row_module_id__mdl_name": "Projects"
      }
     },
@@ -48,7 +48,7 @@
       "grp_comment": null,
       "grp_type": ["G"],
       "grp_parent_id__grp_name": null,
-      "grp_home_id__viw_name": "ProjectsScope",
+      "grp_home_id__viw_name": null,
       "row_module_id__mdl_name": "Projects"
      }
     },
@@ -438,170 +438,6 @@
         },
         {
          "object": "ObjectFieldSystem",
-         "userkey": "PrjItem~prjPrjName~120",
-         "item": {
-          "obf_object_id__obo_name": "PrjItem",
-          "obf_field_id__fld_name": "prjPrjName",
-          "obf_field_id__fld_type": "3",
-          "obf_order": 120,
-          "obf_group_by": null,
-          "obf_dfault_order": null,
-          "obf_input": null,
-          "obf_ref_field_id__fld_name": "prjVrsPrjId",
-          "obf_ref_object_id__obo_name": "PrjProject",
-          "obf_cascad": null,
-          "obf_card": null,
-          "obf_visible": null,
-          "obf_ref_export": true,
-          "obf_copy": null,
-          "obf_ref_order": null,
-          "obf_fld_visible": "3",
-          "obf_fld_required": null,
-          "obf_fld_updatable": null,
-          "obf_fld_research": null,
-          "obf_fld_more": "0",
-          "obf_fld_listmore": null,
-          "obf_fld_researchreq": null,
-          "obf_fld_dfault": null,
-          "obf_field_id__fld_dfault": null,
-          "obf_area_id__ofa_name": "PrjItem-1",
-          "obf_area_id__ofa_position": 1,
-          "row_module_id__mdl_name": "Projects"
-         },
-         "links": [
-          {
-           "object": "TranslateObjectField",
-           "label": "Object field translation",
-           "icon": "img/system/translation",
-           "field": "tsl_id",
-           "list": [
-            {
-             "object": "TranslateObjectField",
-             "userkey": "L~PrjItem~prjPrjName~120~ENU",
-             "item": {
-              "tsl_typeObjectField": "L",
-              "tsl_id__obf_object_id__obo_name": "PrjItem",
-              "tsl_id__obf_field_id__fld_name": "prjPrjName",
-              "tsl_id__obf_order": 120,
-              "tsl_lang": "ENU",
-              "tsl_value": "Project",
-              "tsl_simplehelp": null,
-              "tsl_short_value": null,
-              "tsl_listhelp": null,
-              "tsl_placeholder": null,
-              "row_module_id__mdl_name": "Projects"
-             }
-            },
-            {
-             "object": "TranslateObjectField",
-             "userkey": "L~PrjItem~prjPrjName~120~FRA",
-             "item": {
-              "tsl_typeObjectField": "L",
-              "tsl_id__obf_object_id__obo_name": "PrjItem",
-              "tsl_id__obf_field_id__fld_name": "prjPrjName",
-              "tsl_id__obf_order": 120,
-              "tsl_lang": "FRA",
-              "tsl_value": "Nom Projet",
-              "tsl_simplehelp": null,
-              "tsl_short_value": null,
-              "tsl_listhelp": null,
-              "tsl_placeholder": null,
-              "row_module_id__mdl_name": "Projects"
-             }
-            }
-           ]
-          },
-          {
-           "object": "Field",
-           "label": "Field",
-           "icon": "img/system/field",
-           "field": "",
-           "list": [{
-            "object": "Field",
-            "userkey": "prjPrjName",
-            "item": {
-             "fld_name": "prjPrjName",
-             "fld_dbname": "prj_prj_name",
-             "fld_visible": "3",
-             "fld_updatable": "1",
-             "fld_required": true,
-             "fld_fonctid": true,
-             "fld_research": "1",
-             "fld_researchreq": "0",
-             "fld_sort": "C",
-             "fld_more": false,
-             "fld_listmore": false,
-             "fld_listsum": null,
-             "fld_tray": null,
-             "fld_type": "3",
-             "fld_type_id__flt_code": null,
-             "fld_list_id__lov_name": null,
-             "fld_copy": true,
-             "fld_size": 100,
-             "fld_minsize": null,
-             "fld_precision": null,
-             "fld_fromdate_id__fld_name": null,
-             "fld_dfault": null,
-             "fld_indexable": false,
-             "fld_autocomp": "0",
-             "fld_groupby": false,
-             "fld_updall": true,
-             "fld_case": null,
-             "fld_righttoleft": false,
-             "fld_rendering": null,
-             "fld_speech": null,
-             "fld_calc": null,
-             "fld_objlist": null,
-             "fld_comment": null,
-             "fld_classification": null,
-             "row_module_id__mdl_name": "Projects"
-            },
-            "links": [{
-             "object": "TranslateField",
-             "label": "Field translation",
-             "icon": "img/system/translation",
-             "field": "tsl_id",
-             "list": [
-              {
-               "object": "TranslateField",
-               "userkey": "F~prjPrjName~ENU",
-               "item": {
-                "tsl_typeField": "F",
-                "tsl_id__fld_name": "prjPrjName",
-                "tsl_lang": "ENU",
-                "tsl_value": "Name",
-                "tsl_simplehelp": null,
-                "tsl_short_value": null,
-                "tsl_placeholder": null,
-                "tsl_listhelp": null,
-                "row_module_id__mdl_name": "Projects",
-                "tsl_tooltip": null
-               }
-              },
-              {
-               "object": "TranslateField",
-               "userkey": "F~prjPrjName~FRA",
-               "item": {
-                "tsl_typeField": "F",
-                "tsl_id__fld_name": "prjPrjName",
-                "tsl_lang": "FRA",
-                "tsl_value": "Nom",
-                "tsl_simplehelp": null,
-                "tsl_short_value": null,
-                "tsl_placeholder": null,
-                "tsl_listhelp": null,
-                "row_module_id__mdl_name": "Projects",
-                "tsl_tooltip": null
-               }
-              }
-             ]
-            }]
-           }]
-          }
-         ]
-        },
-        {
-         "object": "ObjectFieldSystem",
          "userkey": "PrjItem~prjVrsVersion~120",
          "item": {
           "obf_object_id__obo_name": "PrjItem",
@@ -750,6 +586,170 @@
                 "tsl_id__fld_name": "prjVrsVersion",
                 "tsl_lang": "FRA",
                 "tsl_value": "Version",
+                "tsl_simplehelp": null,
+                "tsl_short_value": null,
+                "tsl_placeholder": null,
+                "tsl_listhelp": null,
+                "row_module_id__mdl_name": "Projects",
+                "tsl_tooltip": null
+               }
+              }
+             ]
+            }]
+           }]
+          }
+         ]
+        },
+        {
+         "object": "ObjectFieldSystem",
+         "userkey": "PrjItem~prjPrjName~120",
+         "item": {
+          "obf_object_id__obo_name": "PrjItem",
+          "obf_field_id__fld_name": "prjPrjName",
+          "obf_field_id__fld_type": "3",
+          "obf_order": 120,
+          "obf_group_by": null,
+          "obf_dfault_order": null,
+          "obf_input": null,
+          "obf_ref_field_id__fld_name": "prjVrsPrjId",
+          "obf_ref_object_id__obo_name": "PrjProject",
+          "obf_cascad": null,
+          "obf_card": null,
+          "obf_visible": null,
+          "obf_ref_export": true,
+          "obf_copy": null,
+          "obf_ref_order": null,
+          "obf_fld_visible": "3",
+          "obf_fld_required": null,
+          "obf_fld_updatable": null,
+          "obf_fld_research": null,
+          "obf_fld_more": "0",
+          "obf_fld_listmore": null,
+          "obf_fld_researchreq": null,
+          "obf_fld_dfault": null,
+          "obf_field_id__fld_dfault": null,
+          "obf_area_id__ofa_name": "PrjItem-1",
+          "obf_area_id__ofa_position": 1,
+          "row_module_id__mdl_name": "Projects"
+         },
+         "links": [
+          {
+           "object": "TranslateObjectField",
+           "label": "Object field translation",
+           "icon": "img/system/translation",
+           "field": "tsl_id",
+           "list": [
+            {
+             "object": "TranslateObjectField",
+             "userkey": "L~PrjItem~prjPrjName~120~ENU",
+             "item": {
+              "tsl_typeObjectField": "L",
+              "tsl_id__obf_object_id__obo_name": "PrjItem",
+              "tsl_id__obf_field_id__fld_name": "prjPrjName",
+              "tsl_id__obf_order": 120,
+              "tsl_lang": "ENU",
+              "tsl_value": "Project",
+              "tsl_simplehelp": null,
+              "tsl_short_value": null,
+              "tsl_listhelp": null,
+              "tsl_placeholder": null,
+              "row_module_id__mdl_name": "Projects"
+             }
+            },
+            {
+             "object": "TranslateObjectField",
+             "userkey": "L~PrjItem~prjPrjName~120~FRA",
+             "item": {
+              "tsl_typeObjectField": "L",
+              "tsl_id__obf_object_id__obo_name": "PrjItem",
+              "tsl_id__obf_field_id__fld_name": "prjPrjName",
+              "tsl_id__obf_order": 120,
+              "tsl_lang": "FRA",
+              "tsl_value": "Nom Projet",
+              "tsl_simplehelp": null,
+              "tsl_short_value": null,
+              "tsl_listhelp": null,
+              "tsl_placeholder": null,
+              "row_module_id__mdl_name": "Projects"
+             }
+            }
+           ]
+          },
+          {
+           "object": "Field",
+           "label": "Field",
+           "icon": "img/system/field",
+           "field": "",
+           "list": [{
+            "object": "Field",
+            "userkey": "prjPrjName",
+            "item": {
+             "fld_name": "prjPrjName",
+             "fld_dbname": "prj_prj_name",
+             "fld_visible": "3",
+             "fld_updatable": "1",
+             "fld_required": true,
+             "fld_fonctid": true,
+             "fld_research": "1",
+             "fld_researchreq": "0",
+             "fld_sort": "C",
+             "fld_more": false,
+             "fld_listmore": false,
+             "fld_listsum": null,
+             "fld_tray": null,
+             "fld_type": "3",
+             "fld_type_id__flt_code": null,
+             "fld_list_id__lov_name": null,
+             "fld_copy": true,
+             "fld_size": 100,
+             "fld_minsize": null,
+             "fld_precision": null,
+             "fld_fromdate_id__fld_name": null,
+             "fld_dfault": null,
+             "fld_indexable": false,
+             "fld_autocomp": "0",
+             "fld_groupby": false,
+             "fld_updall": true,
+             "fld_case": null,
+             "fld_righttoleft": false,
+             "fld_rendering": null,
+             "fld_speech": null,
+             "fld_calc": null,
+             "fld_objlist": null,
+             "fld_comment": null,
+             "fld_classification": null,
+             "row_module_id__mdl_name": "Projects"
+            },
+            "links": [{
+             "object": "TranslateField",
+             "label": "Field translation",
+             "icon": "img/system/translation",
+             "field": "tsl_id",
+             "list": [
+              {
+               "object": "TranslateField",
+               "userkey": "F~prjPrjName~ENU",
+               "item": {
+                "tsl_typeField": "F",
+                "tsl_id__fld_name": "prjPrjName",
+                "tsl_lang": "ENU",
+                "tsl_value": "Name",
+                "tsl_simplehelp": null,
+                "tsl_short_value": null,
+                "tsl_placeholder": null,
+                "tsl_listhelp": null,
+                "row_module_id__mdl_name": "Projects",
+                "tsl_tooltip": null
+               }
+              },
+              {
+               "object": "TranslateField",
+               "userkey": "F~prjPrjName~FRA",
+               "item": {
+                "tsl_typeField": "F",
+                "tsl_id__fld_name": "prjPrjName",
+                "tsl_lang": "FRA",
+                "tsl_value": "Nom",
                 "tsl_simplehelp": null,
                 "tsl_short_value": null,
                 "tsl_placeholder": null,
@@ -2755,7 +2755,7 @@
       "obo_type": "O",
       "obo_searchspec": null,
       "obo_delspec": null,
-      "obo_exportorder": null,
+      "obo_exportorder": 1,
       "obo_distinct": false,
       "obo_indexable": false,
       "obo_groupby": false,
@@ -4644,9 +4644,9 @@
        "field": "obo_script_id",
        "mime": "text/plain",
        "name": "PrjUser.java",
-       "id": "38757",
+       "id": "7424",
        "object": "ObjectInternal",
-       "rowid": "2201"
+       "rowid": "2008"
       },
       "obo_usets": "1",
       "obo_nosearch": "1",
@@ -7916,13 +7916,13 @@
     "userkey": "ProjectsScope",
     "item": {
      "viw_name": "ProjectsScope",
-     "viw_ui": null,
+     "viw_ui": "<div class=\"area\" data-area=\"1:=\"><\/div>",
      "viw_order": 1,
-     "viw_icon": "img/color/sprint_interation",
+     "viw_icon": "img/color/sprint_iteration",
      "viw_disp_id__dis_code": null,
      "viw_scope": "ProjectsScope",
      "row_module_id__mdl_name": "Projects",
-     "viw_theme_id__thm_name": null,
+     "viw_theme_id__thm_name": "ThemeDesign",
      "viw_lang": null
     },
     "links": [
@@ -7959,16 +7959,45 @@
       ]
      },
      {
+      "object": "ViewItem",
+      "label": "View areas",
+      "icon": "object",
+      "field": "vwi_view_id",
+      "list": [{
+       "object": "ViewItem",
+       "userkey": "ProjectsScope~1",
+       "item": {
+        "vwi_view_id__viw_name": "ProjectsScope",
+        "vwi_position": 1,
+        "vwi_type": "U",
+        "vwi_title": false,
+        "vwi_research_id__rch_name": null,
+        "vwi_research_id__rch_object_id__obo_name": null,
+        "vwi_research_id__rch_user_id__usr_login": null,
+        "vwi_search_spec": null,
+        "vwi_lov_code": null,
+        "vwi_show": null,
+        "vwi_url": null,
+        "vwi_image": null,
+        "vwi_treeview_id__trv_name": null,
+        "vwi_crosstab_id__ctb_name": null,
+        "vwi_printtmpl_id__prt_name": null,
+        "vwi_printtmpl_id__prt_lang": null,
+        "row_module_id__mdl_name": "Projects"
+       }
+      }]
+     },
+     {
       "object": "ViewGroup",
       "label": "Active group",
       "icon": "object",
       "field": "vig_view_id",
       "list": [{
        "object": "ViewGroup",
-       "userkey": "ProjectsScope~PRJ_READONLY",
+       "userkey": "ProjectsScope~PRJ_SUPERADMIN",
        "item": {
         "vig_view_id__viw_name": "ProjectsScope",
-        "vig_group_id__grp_name": "PRJ_READONLY",
+        "vig_group_id__grp_name": "PRJ_SUPERADMIN",
         "vig_group_id__grp_comment": null,
         "row_module_id__mdl_name": "Projects"
        }
@@ -8435,9 +8464,9 @@
       "field": "res_image",
       "mime": "image/svg+xml",
       "name": "projects-module.svg",
-      "id": "38758",
+      "id": "7425",
       "object": "Resource",
-      "rowid": "456"
+      "rowid": "275"
      },
      "row_module_id__mdl_name": "Projects"
     }
@@ -8461,9 +8490,9 @@
        "field": "mod_doc",
        "mime": "image/svg+xml",
        "name": "ItemStates.svg",
-       "id": "38753",
+       "id": "7418",
        "object": "Model",
-       "rowid": "50"
+       "rowid": "9"
       },
       "mod_json": null,
       "mod_image": {
@@ -8472,9 +8501,9 @@
        "field": "mod_image",
        "mime": "image/png",
        "name": "ItemStates.png",
-       "id": "38754",
+       "id": "7419",
        "object": "Model",
-       "rowid": "50"
+       "rowid": "9"
       },
       "row_module_id__mdl_name": "Projects"
      }
@@ -8490,10 +8519,10 @@
        "size": 20301,
        "field": "mod_doc",
        "mime": "image/svg+xml",
-       "name": "model.svg",
-       "id": "38930",
+       "name": "PrjWIState.svg",
+       "id": "7420",
        "object": "Model",
-       "rowid": "52"
+       "rowid": "10"
       },
       "mod_json": null,
       "mod_image": {
@@ -8502,9 +8531,9 @@
        "field": "mod_image",
        "mime": "image/png",
        "name": "PrjWIState.png",
-       "id": "38931",
+       "id": "7421",
        "object": "Model",
-       "rowid": "52"
+       "rowid": "10"
       },
       "row_module_id__mdl_name": "Projects"
      }
@@ -8521,9 +8550,9 @@
        "field": "mod_doc",
        "mime": "image/svg+xml",
        "name": "ProjectModel.svg",
-       "id": "38755",
+       "id": "7422",
        "object": "Model",
-       "rowid": "51"
+       "rowid": "11"
       },
       "mod_json": null,
       "mod_image": {
@@ -8532,9 +8561,9 @@
        "field": "mod_image",
        "mime": "image/png",
        "name": "ProjectModel.png",
-       "id": "38756",
+       "id": "7423",
        "object": "Model",
-       "rowid": "51"
+       "rowid": "11"
       },
       "row_module_id__mdl_name": "Projects"
      }
@@ -8597,21 +8626,21 @@
    "field": "row_module_id",
    "list": [{
     "object": "Dataset",
-    "userkey": "Projects~Projects-data-20221222153945",
+    "userkey": "Projects~Projects-data-20221222164226",
     "item": {
      "row_module_id__mdl_name": "Projects",
-     "dt_name": "Projects-data-20221222153945",
+     "dt_name": "Projects-data-20221222164226",
      "dt_file": {
-      "path": "data/Projects-data-20221222153945.zip",
-      "size": 308,
+      "path": "data/Projects-data-20221222164226.zip",
+      "size": 416,
       "field": "dt_file",
       "mime": "application/zip",
-      "name": "Projects-data-20221222153945.zip",
-      "id": "38988",
+      "name": "Projects-data-20221222164226.zip",
+      "id": "7475",
       "object": "Dataset",
-      "rowid": "13"
+      "rowid": "2"
      },
-     "dt_desc": "Created by module's data export on 2022-12-22 15:39:45"
+     "dt_desc": "Created by module's data export on 2022-12-22 16:42:26"
     }
    }]
   }

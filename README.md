@@ -24,8 +24,8 @@ Work Item
 |--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
 | `prjItmVrsId` link to **`PrjVersion`**                       | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `prjItmVrsId.prjVrsPrjId`_                             | _id_                                     |          |           |          | -                                                                                |
-| _Ref. `prjVrsPrjId.prjPrjName`_                              | _char(100)_                              |          |           |          | -                                                                                |
 | _Ref. `prjItmVrsId.prjVrsVersion`_                           | _char(10)_                               |          |           |          | -                                                                                |
+| _Ref. `prjVrsPrjId.prjPrjName`_                              | _char(100)_                              |          |           |          | -                                                                                |
 | _Ref. `prjItmVrsId.prjVrsDueDate`_                           | _date_                                   |          |           |          | -                                                                                |
 | `prjItmUsrId` link to **`PrjUser`**                          | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `prjItmUsrId.usr_login`_                               | _regexp(100)_                            |          |           | yes      | _Login_                                                                          |
@@ -66,17 +66,6 @@ Work Item
 | `prjItattItmId` link to **`PrjItem`**                        | id                                       | yes      | yes       |          | -                                                                                |
 | _Ref. `prjItattItmId.prjItmNumber`_                          | _int(11)_                                |          |           |          | -                                                                                |
 | `prjItattFile`                                               | document                                 | yes*     | yes       |          | -                                                                                |
-
-`PrjLabel` business object definition
--------------------------------------
-
-
-
-### Fields
-
-| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
-|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
-| `prjLblName`                                                 | char(30)                                 | yes*     | yes       |          | -                                                                                |
 
 `PrjLblItm` business object definition
 --------------------------------------
@@ -149,4 +138,15 @@ Role on project
 | _Ref. `prjVrsPrjId.prjPrjName`_                              | _char(100)_                              |          |           |          | -                                                                                |
 | `prjVrsVersion`                                              | char(10)                                 | yes*     | yes       |          | -                                                                                |
 | `prjVrsDueDate`                                              | date                                     |          | yes       |          | -                                                                                |
+
+`PrjLabel` business object definition
+-------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `prjLblName`                                                 | char(30)                                 | yes*     | yes       |          | -                                                                                |
 

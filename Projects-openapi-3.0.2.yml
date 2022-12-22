@@ -1163,14 +1163,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: prjItmVrsId__prjVrsVersion
-        description: Search filter for Version
+        name: prjItmVrsId__prjVrsPrjId__prjPrjName
+        description: Search filter for Project
         required: false
       - schema:
           type: string
         in: query
-        name: prjItmVrsId__prjVrsPrjId__prjPrjName
-        description: Search filter for Project
+        name: prjItmVrsId__prjVrsVersion
+        description: Search filter for Version
         required: false
       - schema:
           type: string

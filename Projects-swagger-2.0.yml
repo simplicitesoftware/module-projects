@@ -53,13 +53,13 @@ paths:
         type: string
         required: false
       - in: query
-        name: prjItmVrsId__prjVrsVersion
-        description: Search filter for Version
+        name: prjItmVrsId__prjVrsPrjId__prjPrjName
+        description: Search filter for Project
         type: string
         required: false
       - in: query
-        name: prjItmVrsId__prjVrsPrjId__prjPrjName
-        description: Search filter for Project
+        name: prjItmVrsId__prjVrsVersion
+        description: Search filter for Version
         type: string
         required: false
       - in: query
