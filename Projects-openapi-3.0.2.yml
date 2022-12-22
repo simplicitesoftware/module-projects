@@ -28,33 +28,10 @@ components:
         row_id:
           description: Unique technical row ID
           type: string
-    ArrayOfPrjItem:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrjItem'
     ArrayOfPrjProject:
       type: array
       items:
         $ref: '#/components/schemas/PrjProject'
-    PrjVersion:
-      type: object
-      properties:
-        prjVrsVersion:
-          description: Version
-          type: string
-        prjVrsDueDate:
-          description: Due Date
-          type: string
-          example: yyyy-MM-dd
-        prjVrsPrjId:
-          description: Project
-          type: string
-        prjVrsPrjId__prjPrjName:
-          description: Project Name
-          type: string
-        row_id:
-          description: Unique technical row ID
-          type: string
     PrjItem:
       type: object
       properties:
@@ -121,31 +98,6 @@ components:
         prjItmDescription:
           description: Description
           type: string
-    PrjRole:
-      type: object
-      properties:
-        prjRolUsrId:
-          description: User
-          type: string
-        prjRolPrjId__prjPrjName:
-          description: Project Name
-          type: string
-        prjRolPrjId:
-          description: Project
-          type: string
-        prjRolType:
-          description: Type
-          type: string
-          enum:
-          - PRJ_MOA
-          - PRJ_MOE
-          - PRJ_READONLY
-        row_id:
-          description: Unique technical row ID
-          type: string
-        prjRolUsrId__usr_login:
-          description: Login
-          type: string
     PublicationResult:
       type: object
       properties:
@@ -162,6 +114,7 @@ components:
           description: Time zone
           type: string
           enum:
+          - ''
           - Etc/GMT+12
           - Etc/GMT+11
           - Pacific/Midway
@@ -206,7 +159,6 @@ components:
           - SystemV/PST8
           - SystemV/PST8PDT
           - US/Pacific
-          - US/Pacific-New
           - PST
           - America/Boise
           - America/Cambridge_Bay
@@ -489,6 +441,7 @@ components:
           - Africa/Niamey
           - Africa/Porto-Novo
           - Africa/Tunis
+          - Africa/Windhoek
           - Arctic/Longyearbyen
           - Atlantic/Jan_Mayen
           - CET
@@ -533,6 +486,7 @@ components:
           - Africa/Gaborone
           - Africa/Harare
           - Africa/Johannesburg
+          - Africa/Juba
           - Africa/Khartoum
           - Africa/Kigali
           - Africa/Lubumbashi
@@ -541,7 +495,6 @@ components:
           - Africa/Maseru
           - Africa/Mbabane
           - Africa/Tripoli
-          - Africa/Windhoek
           - Asia/Amman
           - Asia/Beirut
           - Asia/Damascus
@@ -578,7 +531,6 @@ components:
           - Africa/Asmera
           - Africa/Dar_es_Salaam
           - Africa/Djibouti
-          - Africa/Juba
           - Africa/Kampala
           - Africa/Mogadishu
           - Africa/Nairobi
@@ -596,6 +548,7 @@ components:
           - Europe/Minsk
           - Europe/Moscow
           - Europe/Simferopol
+          - Europe/Volgograd
           - Indian/Antananarivo
           - Indian/Comoro
           - Indian/Mayotte
@@ -614,7 +567,6 @@ components:
           - Europe/Samara
           - Europe/Saratov
           - Europe/Ulyanovsk
-          - Europe/Volgograd
           - Indian/Mahe
           - Indian/Mauritius
           - Indian/Reunion
@@ -677,7 +629,6 @@ components:
           - Etc/GMT-7
           - Indian/Christmas
           - VST
-          - Antarctica/Casey
           - Asia/Brunei
           - Asia/Choibalsan
           - Asia/Chongqing
@@ -726,6 +677,7 @@ components:
           - Australia/Yancowinna
           - ACT
           - Antarctica/DumontDUrville
+          - Antarctica/Macquarie
           - Asia/Ust-Nera
           - Asia/Vladivostok
           - Australia/ACT
@@ -750,7 +702,7 @@ components:
           - AET
           - Australia/LHI
           - Australia/Lord_Howe
-          - Antarctica/Macquarie
+          - Antarctica/Casey
           - Asia/Magadan
           - Asia/Sakhalin
           - Asia/Srednekolymsk
@@ -792,14 +744,11 @@ components:
           - Etc/GMT-14
           - Pacific/Kiritimati
         row_module_id__mdl_name:
-          description: Module Name
+          description: Module name
           type: string
         usr_image_id:
           description: Picture
           type: object
-        usr_subhead:
-          description: Sub-head
-          type: boolean
         usr_minrows:
           description: Min size of lists
           type: integer
@@ -820,8 +769,14 @@ components:
           - BE
           - CH
           - IE
-          - US
+          - IT
+          - PT
+          - NL
+          - CZ
+          - AT
           - CA
+          - US
+          - AU
         usr_title:
           description: Title
           type: string
@@ -839,9 +794,6 @@ components:
         usr_menu_defdomain_id:
           description: Domain menu by default
           type: string
-        usr_menu_defhidden:
-          description: deprecated
-          type: boolean
         usr_menu_defcollapsed:
           description: Menu collapsed by default
           type: boolean
@@ -872,6 +824,14 @@ components:
         usr_menu:
           description: Menu visible
           type: boolean
+        usr_mfa_method:
+          description: Second authentication factor method
+          type: string
+          enum:
+          - EMAIL
+          - SMS
+          - TOTP
+          - CUSTOM
         usr_zipcode:
           description: Postal/ZIP code
           type: string
@@ -893,6 +853,12 @@ components:
         usr_city:
           description: City
           type: string
+        usr_lang_pref:
+          description: Preferred language
+          type: string
+          enum:
+          - ENU
+          - FRA
         usr_lang:
           description: Language
           type: string
@@ -902,6 +868,9 @@ components:
         usr_maxrows:
           description: Max size of lists
           type: integer
+        usr_mfa_settings:
+          description: Second authentication factor settings
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
@@ -914,9 +883,6 @@ components:
         usr_state:
           description: State
           type: string
-        usr_extra:
-          description: Extra zone visible
-          type: boolean
         usr_dateformat:
           description: Date format
           type: string
@@ -925,58 +891,38 @@ components:
           - DMY
           - MDY
           - CHF
-    ArrayOfPrjVersion:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrjVersion'
-    PrjLabel:
+    PlaceData:
       type: object
       properties:
-        prjLblName:
+        coord:
+          description: Geographical coordinates
+          type: string
+        address:
+          description: Address
+          type: string
+        row_id:
+          description: Row ID
+          type: string
+        label1:
+          description: 'Label #1'
+          type: string
+        label2:
+          description: 'Label #2'
+          type: string
+        label3:
+          description: 'Label #3'
+          type: string
+    PlaceMapData:
+      type: object
+      properties:
+        places:
+          description: Places
+          type: array
+          items:
+            $ref: '#/components/schemas/PlaceData'
+        name:
           description: Name
           type: string
-        row_id:
-          description: Unique technical row ID
-          type: string
-    PrjLblItm:
-      type: object
-      properties:
-        prjLblitmLblId:
-          description: prj lblitm lbl id
-          type: string
-        prjLblitmItmId:
-          description: Labels
-          type: string
-        prjLblitmLblId__prjLblName:
-          description: prj lblitm lbl id Name
-          type: string
-        row_id:
-          description: Unique technical row ID
-          type: string
-    ArrayOfPrjUser:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrjUser'
-    ActionResult:
-      type: object
-      properties:
-        result:
-          description: Action result
-          type: string
-    TreeviewData:
-      type: object
-      properties:
-        item:
-          description: Object item with lists of linked objects' items
-          type: object
-    ArrayOfPrjItmAttachements:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrjItmAttachements'
-    ArrayOfPrjLabel:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrjLabel'
     Error400:
       type: object
       properties:
@@ -1010,6 +956,124 @@ components:
           type: integer
           enum:
           - 500
+    ArrayOfPrjRole:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjRole'
+    Error403:
+      type: object
+      properties:
+        error:
+          description: Error message
+          type: string
+        status:
+          description: Error status
+          type: integer
+          enum:
+          - 403
+    ArrayOfPrjItem:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjItem'
+    PrjVersion:
+      type: object
+      properties:
+        prjVrsVersion:
+          description: Version
+          type: string
+        prjVrsDueDate:
+          description: Due Date
+          type: string
+          example: yyyy-MM-dd
+        prjVrsPrjId:
+          description: Project
+          type: string
+        prjVrsPrjId__prjPrjName:
+          description: Project Name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    PrjRole:
+      type: object
+      properties:
+        prjRolUsrId:
+          description: User
+          type: string
+        prjRolPrjId__prjPrjName:
+          description: Project Name
+          type: string
+        prjRolPrjId:
+          description: Project
+          type: string
+        prjRolType:
+          description: Type
+          type: string
+          enum:
+          - PRJ_MOA
+          - PRJ_MOE
+          - PRJ_READONLY
+        row_id:
+          description: Unique technical row ID
+          type: string
+        prjRolUsrId__usr_login:
+          description: Login
+          type: string
+    ArrayOfPrjVersion:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjVersion'
+    PrjLabel:
+      type: object
+      properties:
+        prjLblName:
+          description: Name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    PrjLblItm:
+      type: object
+      properties:
+        prjLblitmLblId:
+          description: prj lblitm lbl id
+          type: string
+        prjLblitmItmId:
+          description: Labels
+          type: string
+        prjLblitmItmId__prjItmNumber:
+          description: Labels Reference
+          type: integer
+        prjLblitmLblId__prjLblName:
+          description: prj lblitm lbl id Name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    ArrayOfPrjUser:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjUser'
+    ActionResult:
+      type: object
+      properties:
+        result:
+          description: Action result
+          type: string
+    TreeviewData:
+      type: object
+      properties:
+        item:
+          description: Object item with lists of linked objects' items
+          type: object
+    ArrayOfPrjItmAttachements:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjItmAttachements'
+    ArrayOfPrjLabel:
+      type: array
+      items:
+        $ref: '#/components/schemas/PrjLabel'
     PrjItmAttachements:
       type: object
       properties:
@@ -1029,21 +1093,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/PrjLblItm'
-    ArrayOfPrjRole:
-      type: array
-      items:
-        $ref: '#/components/schemas/PrjRole'
-    Error403:
-      type: object
-      properties:
-        error:
-          description: Error message
-          type: string
-        status:
-          description: Error status
-          type: integer
-          enum:
-          - 403
   securitySchemes:
     basicAuth:
       scheme: basic
@@ -1114,14 +1163,14 @@ paths:
       - schema:
           type: string
         in: query
-        name: prjItmVrsId__prjVrsPrjId__prjPrjName
-        description: Search filter for Project
+        name: prjItmVrsId__prjVrsVersion
+        description: Search filter for Version
         required: false
       - schema:
           type: string
         in: query
-        name: prjItmVrsId__prjVrsVersion
-        description: Search filter for Version
+        name: prjItmVrsId__prjVrsPrjId__prjPrjName
+        description: Search filter for Project
         required: false
       - schema:
           type: string
@@ -2046,6 +2095,12 @@ paths:
         name: prjLblitmItmId
         description: Search filter for Labels
         required: false
+      - schema:
+          type: integer
+        in: query
+        name: prjLblitmItmId__prjItmNumber
+        description: Search filter for Labels Reference
+        required: false
       tags:
       - PrjLblItm
   /logout:
@@ -2120,6 +2175,47 @@ paths:
         required: false
       tags:
       - PrjLabel
+  /rest/PrjUser/{row_id}/publication:User-VCARD:
+    get:
+      summary: Call a custom publication for a PrjUser business object record or for
+        all records
+      security:
+      - bearerAuth: []
+      operationId: obj-prjuser-publication-user-vcard
+      responses:
+        '200':
+          description: Success in calling the custom publication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PublicationResult'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - PrjUser
   /rest/PrjLblItm/{row_id}:
     post:
       summary: Create a new PrjLblItmbusiness object record
@@ -3152,27 +3248,19 @@ paths:
       - schema:
           type: string
         in: query
+        name: usr_image_id
+        description: Search filter for Picture
+        required: false
+      - schema:
+          type: string
+        in: query
         name: usr_login
         description: Search filter for Login
         required: false
       - schema:
           type: string
           enum:
-          - ENU
-          - FRA
-        in: query
-        name: usr_lang
-        description: Search filter for Language
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_image_id
-        description: Search filter for Picture
-        required: false
-      - schema:
-          type: string
-          enum:
+          - ''
           - Etc/GMT+12
           - Etc/GMT+11
           - Pacific/Midway
@@ -3217,7 +3305,6 @@ paths:
           - SystemV/PST8
           - SystemV/PST8PDT
           - US/Pacific
-          - US/Pacific-New
           - PST
           - America/Boise
           - America/Cambridge_Bay
@@ -3500,6 +3587,7 @@ paths:
           - Africa/Niamey
           - Africa/Porto-Novo
           - Africa/Tunis
+          - Africa/Windhoek
           - Arctic/Longyearbyen
           - Atlantic/Jan_Mayen
           - CET
@@ -3544,6 +3632,7 @@ paths:
           - Africa/Gaborone
           - Africa/Harare
           - Africa/Johannesburg
+          - Africa/Juba
           - Africa/Khartoum
           - Africa/Kigali
           - Africa/Lubumbashi
@@ -3552,7 +3641,6 @@ paths:
           - Africa/Maseru
           - Africa/Mbabane
           - Africa/Tripoli
-          - Africa/Windhoek
           - Asia/Amman
           - Asia/Beirut
           - Asia/Damascus
@@ -3589,7 +3677,6 @@ paths:
           - Africa/Asmera
           - Africa/Dar_es_Salaam
           - Africa/Djibouti
-          - Africa/Juba
           - Africa/Kampala
           - Africa/Mogadishu
           - Africa/Nairobi
@@ -3607,6 +3694,7 @@ paths:
           - Europe/Minsk
           - Europe/Moscow
           - Europe/Simferopol
+          - Europe/Volgograd
           - Indian/Antananarivo
           - Indian/Comoro
           - Indian/Mayotte
@@ -3625,7 +3713,6 @@ paths:
           - Europe/Samara
           - Europe/Saratov
           - Europe/Ulyanovsk
-          - Europe/Volgograd
           - Indian/Mahe
           - Indian/Mauritius
           - Indian/Reunion
@@ -3688,7 +3775,6 @@ paths:
           - Etc/GMT-7
           - Indian/Christmas
           - VST
-          - Antarctica/Casey
           - Asia/Brunei
           - Asia/Choibalsan
           - Asia/Chongqing
@@ -3737,6 +3823,7 @@ paths:
           - Australia/Yancowinna
           - ACT
           - Antarctica/DumontDUrville
+          - Antarctica/Macquarie
           - Asia/Ust-Nera
           - Asia/Vladivostok
           - Australia/ACT
@@ -3761,7 +3848,7 @@ paths:
           - AET
           - Australia/LHI
           - Australia/Lord_Howe
-          - Antarctica/Macquarie
+          - Antarctica/Casey
           - Asia/Magadan
           - Asia/Sakhalin
           - Asia/Srednekolymsk
@@ -3821,17 +3908,6 @@ paths:
       - schema:
           type: string
           enum:
-          - '0'
-          - '1'
-          - '2'
-          - '3'
-        in: query
-        name: usr_active
-        description: Search filter for Active
-        required: false
-      - schema:
-          type: string
-          enum:
           - MR
           - MRS
           - MS
@@ -3842,32 +3918,29 @@ paths:
       - schema:
           type: string
         in: query
-        name: usr_last_name
-        description: Search filter for Last name
-        required: false
-      - schema:
-          type: string
-        in: query
         name: usr_first_name
         description: Search filter for First name
         required: false
       - schema:
           type: string
         in: query
+        name: usr_last_name
+        description: Search filter for Last name
+        required: false
+      - schema:
+          type: string
+          enum:
+          - ENU
+          - FRA
+        in: query
+        name: usr_lang
+        description: Search filter for Language
+        required: false
+      - schema:
+          type: string
+        in: query
         name: usr_email
         description: Search filter for Email address
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_home_id
-        description: Search filter for Home page
-        required: false
-      - schema:
-          type: string
-        in: query
-        name: usr_home_id__viw_name
-        description: Search filter for Home page
         required: false
       - schema:
           type: string
@@ -3886,6 +3959,29 @@ paths:
         in: query
         name: usr_cell_num
         description: Search filter for Mobile/cellular phone number
+        required: false
+      - schema:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+          - '3'
+        in: query
+        name: usr_active
+        description: Search filter for Active
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_id
+        description: Search filter for Home page
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_home_id__viw_name
+        description: Search filter for Home page
         required: false
       - schema:
           type: string
@@ -3927,8 +4023,14 @@ paths:
           - BE
           - CH
           - IE
-          - US
+          - IT
+          - PT
+          - NL
+          - CZ
+          - AT
           - CA
+          - US
+          - AU
         in: query
         name: usr_country
         description: Search filter for Country
@@ -3943,19 +4045,13 @@ paths:
           type: string
         in: query
         name: row_module_id__mdl_name
-        description: Search filter for Module Name
+        description: Search filter for Module name
         required: false
       - schema:
           type: boolean
         in: query
         name: usr_menu
         description: Search filter for Menu visible
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: usr_menu_defhidden
-        description: Search filter for deprecated
         required: false
       - schema:
           type: boolean
@@ -3974,18 +4070,6 @@ paths:
         in: query
         name: usr_menu_defdomain_id__obd_name
         description: Search filter for Default opened domain
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: usr_extra
-        description: Search filter for Extra zone visible
-        required: false
-      - schema:
-          type: boolean
-        in: query
-        name: usr_subhead
-        description: Search filter for Sub-head
         required: false
       - schema:
           type: string
@@ -4009,6 +4093,32 @@ paths:
         in: query
         name: usr_dateformat
         description: Search filter for Date format
+        required: false
+      - schema:
+          type: string
+          enum:
+          - ENU
+          - FRA
+        in: query
+        name: usr_lang_pref
+        description: Search filter for Preferred language
+        required: false
+      - schema:
+          type: string
+          enum:
+          - EMAIL
+          - SMS
+          - TOTP
+          - CUSTOM
+        in: query
+        name: usr_mfa_method
+        description: Search filter for Second authentication factor method
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: usr_mfa_settings
+        description: Search filter for Second authentication factor settings
         required: false
       - schema:
           type: string
@@ -4291,7 +4401,7 @@ tags:
 - name: PrjLabel
   description: Label
 - name: PrjLblItm
-  description: Prj lbl itm
+  description: Work item abel
 - name: PrjProject
   description: Project
 - name: PrjRole
